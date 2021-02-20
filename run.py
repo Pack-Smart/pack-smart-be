@@ -1,4 +1,5 @@
 from api import create_app
+from api.resources import items
 
 '''
 This is your "runner" file. Use it to run your Flask project from the command
