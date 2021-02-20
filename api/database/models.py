@@ -3,34 +3,48 @@ from sqlalchemy import Column, String, Integer
 from api import db
 
 
-class User(db.Model):
+class Item(db.Model):
     """
-    User Model
+    Item Model
     """
-    __tablename__ = 'users'
+    __tablename__ = 'items'
 
     # Auto-incrementing, unique primary key
     id = Column(Integer, primary_key=True)
-    # unique username
-    username = Column(String(80), unique=True, nullable=False)
-    # unique email
-    email = Column(String(100), unique=True, nullable=False)
+    # unique item
+    name = Column(String(80), unique=True, nullable=False)
+    # category
+    category = Column(String(100), nullable=False)
+    # weather
+    weather = Column(String(80), nullable=False)
+    # gender
+    gender = Column(String(80), nullable=False)
 
-    def __init__(self, username, email, user_id=None):
-        if username is not None:
-            username = bleach.clean(username).strip()
-            if username == '':
-                username = None
+    def __init__(self, name, category, weather, gender):
+        if name is not None:
+            name = bleach.clean(name).strip()
+            if name == '':
+                name = None
 
-        if email is not None:
-            email = bleach.clean(email).strip()
-            if email == '':
-                email = None
+        if category is not None:
+            category = bleach.clean(category).strip()
+            if category == '':
+                category = None
 
-        self.username = username
-        self.email = email
-        if user_id is not None:
-            self.id = user_id
+        if weather is not None:
+            weather = bleach.clean(weather).strip()
+            if weather == '':
+                weather = None
+        
+        if gender is not None:
+            gender = bleach.clean(gender).strip()
+            if gender == '':
+                gender = None
+
+        self.name = name
+        self.category = category
+        self.weather = weather
+        self.gender = gender
 
     def insert(self):
         """
