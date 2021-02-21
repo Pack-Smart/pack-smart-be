@@ -12,7 +12,7 @@ class Item(db.Model):
     # Auto-incrementing, unique primary key
     id = Column(Integer, primary_key=True)
     # unique item
-    name = Column(String(80), unique=True, nullable=False)
+    name = Column(String(80), nullable=False)
     # category
     category = Column(String(100), nullable=False)
     # weather
@@ -35,7 +35,7 @@ class Item(db.Model):
             weather = bleach.clean(weather).strip()
             if weather == '':
                 weather = None
-        
+
         if gender is not None:
             gender = bleach.clean(gender).strip()
             if gender == '':
