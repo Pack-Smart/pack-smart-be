@@ -33,12 +33,13 @@ def _item_payload(item):
 @app.route('/api/v1/list/new', methods=['GET'])
 def list():
       ## not fully done need to talk to the front end and finish passing in the variables
-      weathers = ['%hot%', 'all']
-      user_categories = ['clothing']
-      genders = ['all', 'female']
-      
+      data = request.get_json()
+      weathers = data['data']['attributes']['weather']
+      user_categories = data['data']['attributes']['categories']
+      genders = data['data']['attributes']['gender']
+
       items = db.session.query(Item).filter(
-        or_(*[Item.weather.ilike(weather) for weather in weathers]), 
+        or_(*[Item.weather.ilike(weather) for weather in weathers]),
         or_(*[Item.category.like(category) for category in user_categories]),
         or_(*[Item.gender.like(gender) for gender in genders])
         )
@@ -62,31 +63,6 @@ def list():
     }
 
       return jsonify(category_obj)
-
-@app.route('/', methods=['GET'])
-def home():
-  items = db.session.query(Item).all()
-  categories = {}
-
-  for item in items:
-    if item.category in categories:
-      categories[item.category].append(_item_payload(item))
-    else:
-      categories[item.category] = []
-      categories[item.category].append(_item_payload(item))
-
-
-  category_obj = {
-    "data": {
-      "id": datetime.now().strftime('%Y%m-%d%H-%M%S-') + str(uuid4()),
-      "type": "Survey_Results",
-      "attributes": {
-        "categories": categories
-      }
-    }
-  }
-
-  return jsonify(category_obj)
 
 app.run()
 
