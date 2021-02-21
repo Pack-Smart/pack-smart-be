@@ -30,8 +30,8 @@ def db_seed():
     item4 = Item(name='birth control', category='toiletries', weather='all', gender='female')
     item5 = Item(name='toothbrush', category='toiletries', weather='all', gender='all')
     item6 = Item(name='toothpaste', category='toiletries', weather='all', gender='all')
-    item7 = Item(name='phone', category='necessary', weather='all', gender='all')
-    item8 = Item(name='phone charger', category='necessary', weather='all', gender='all')
+    item7 = Item(name='phone', category='essentials', weather='all', gender='all')
+    item8 = Item(name='phone charger', category='essentials', weather='all', gender='all')
     item9 = Item(name='cologne', category='toiletries', weather='all', gender='male')
     item10 = Item(name='diapers', category='child 0-2', weather='all', gender='all')
 
