@@ -28,6 +28,7 @@ db = SQLAlchemy(app)
 def _item_payload(item):
   return {
     "name": item.name,
+    "item_id": item.id,
     "quantity": 0,
     "is_checked": False
   }
