@@ -3,6 +3,7 @@ import json
 # import code; code.interact(local=dict(globals(), **locals()))
 
 from flask import Flask
+from flask_cors import CORS
 from flask import request, jsonify
 from flask_restful import Resource, abort
 from api import db
@@ -15,6 +16,7 @@ from sqlalchemy.sql import text
 from sqlalchemy.dialects import postgresql
 from sqlalchemy import or_
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///pack-smart-dev'
 db = SQLAlchemy(app)
 
@@ -26,11 +28,12 @@ db = SQLAlchemy(app)
 def _item_payload(item):
   return {
     "name": item.name,
+    "item_id": item.id,
     "quantity": 0,
     "is_checked": False
   }
 
-@app.route('/api/v1/list/new', methods=['GET'])
+@app.route('/api/v1/list/new', methods=['POST'])
 def list():
       ## not fully done need to talk to the front end and finish passing in the variables
       data = request.get_json()
