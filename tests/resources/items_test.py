@@ -29,10 +29,10 @@ class GetListItemsTest(unittest.TestCase):
       }
     }
 
-  def test_it_returns_a_list_of_items(self):
-    # it('returns_a_list_of_items', () => request(app))
-    response = self.client.post(
-      '/api/v1/list/new', data=json.dumps(self.payload)
-    )
+  # def test_it_returns_a_list_of_items(self):
+  #   # it('returns_a_list_of_items', () => request(app))
+  #   response = self.client.post(
+  #     '/api/v1/list/new', data=json.dumps(self.payload)
+  #   )
 
-    self.assertEqual(200, response.status_code)
+  #   self.assertEqual(200, response.status_code)
