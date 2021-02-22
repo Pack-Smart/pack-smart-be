@@ -1,6 +1,5 @@
 import json
 import unittest
-from flask import requests
 from copy import deepcopy
 
 from api import create_app, db
