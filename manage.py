@@ -25,7 +25,7 @@ def db_seed():
     db_drop_everything(db)
     db.create_all()
 
-    conn = psycopg2.connect("host=localhost dbname=pack-smart-dev user=postgres")
+    conn = psycopg2.connect("host=localhost dbname=pack-smart-test user=postgres")
     cur = conn.cursor()
     with open('items.csv', 'r') as f:
         next(f) # Skip the header row.
