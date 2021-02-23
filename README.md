@@ -47,18 +47,28 @@ You can follow directions via the Setup documentation, and please see below for 
 * Data structure should be in the following format:
    ```
    {
-    "data": {
-        "id": 0,
-        "type": "survey",
-        "attributes": {
-            "gender": ["All", "Male"],
-            "weather": ["All", "%hot%", "%rainy%"],
-            "destination": "Miami",
-            "number_of_days": "7",
-            "categories": ["Wedding", "Beach", "Child_all", "Child_0-2"]
-        }
-      }
-    }   
+     data: {
+       id: 0,
+       type: 'survey',
+       attributes: {
+         gender: ['All', quizData.gender],
+         weather: ['All', ...modifyWeatherData],
+         tripDetails: {
+           title: quizData.name,
+           destination: quizData.destination,
+           number_of_days: quizData.number_of_days,
+         },
+         categories: [
+           'Accessories',
+           'Clothing',
+           'Essentials',
+           'Toiletries',
+           'Misc.',
+           ...quizData.categories
+         ]
+       }
+     }
+   }
     ```
 
 Note: This project was created using a [starter repo](https://github.com/iandouglas/flask-restful-travis-heroku). Please check it out for more details and context about the setup.
