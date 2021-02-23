@@ -60,7 +60,8 @@ def list():
         "id": datetime.now().strftime('%Y%m-%d%H-%M%S-') + str(uuid4()),
         "type": "Survey_Results",
         "attributes": {
-         "categories": categories
+          "tripDetails": data['data']['attributes']['tripDetails'],
+          "categories": categories
         }
       }
     }
