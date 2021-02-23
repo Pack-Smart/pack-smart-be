@@ -9,8 +9,8 @@ install:
 - pip install -r requirements.txt
 before_script:
 - psql --version
-- psql -c 'create database pack_smart_dev;' -U postgres
-- psql -c 'create database pack_smart_test;' -U postgres
+- psql -c 'create database pack-smart-dev;' -U postgres
+- psql -c 'create database pack-smart-test;' -U postgres
 env:
   - DATABASE_URL=postgresql://localhost:5432/pack-smart-dev
 script:
