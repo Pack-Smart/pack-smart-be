@@ -2,7 +2,7 @@ import json
 import unittest
 from copy import deepcopy
 
-from api.resources import create_app, db
+from api import create_app, db
 from tests import db_drop_everything, assert_payload_field_type_value, \
     assert_payload_field_type
 
