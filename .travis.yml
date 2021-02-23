@@ -16,9 +16,9 @@ deploy:
   provider: heroku
   api_key:
     secure:
-  app: your-heroku-app-name
+  app: pack-smart-be
   on:
-    repo: githubu_sername/repo_name
+    repo: Pack-Smart/pack-smart-be
     branch: main
   skip_cleanup: 'true'
   run:
