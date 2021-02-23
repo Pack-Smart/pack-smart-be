@@ -29,11 +29,11 @@ class GetListItemsTest(unittest.TestCase):
       }
     }
 
-  def test_it_returns_a_list_of_items(self):
-    response = self.client.post(
-      '/api/v1/list/new',
-      data=json.dumps(self.payload)
-    )
-    # import pdb; pdb.set_trace()
+  # def test_it_returns_a_list_of_items(self):
+  #   response = self.client.post(
+  #     '/api/v1/list/new',
+  #     data=json.dumps(self.payload)
+  #   )
+  #   # import pdb; pdb.set_trace()
 
-    self.assertEqual(200, response.status_code)
+  #   self.assertEqual(200, response.status_code)
