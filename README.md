@@ -35,9 +35,10 @@ You can follow directions via the Setup documentation, and please see below for 
 * Change into the directory: `cd pack-smart-be`
 * Activate the virtual environment: `source venv/bin/activate`
 * Install requirements: `pip3 install -r requirements.txt`
-* Create the database: `createdb pack-smart-dev`
-* Set the database URL: `export DATABASE_URL=postgresql://localhost:5432/pack-smart-dev`
+* Create the database: `createdb pack_smart_dev`
+* Set the database URL: `export DATABASE_URL=postgresql://localhost:5432/pack_smart_dev`
 * Upgrade the database: `python3 manage.py db upgrade`
+* Create the test database: `createdb pack_smart_test`
 * Install a tool to help import csv file: `pip3 install psycopg2-binary`
 * Seed the database: `python3 manage.py db_seed`
 * Spin up the local server: `python3 run.py`
