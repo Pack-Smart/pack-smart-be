@@ -41,6 +41,24 @@ class GetListItemsTest(unittest.TestCase):
       '/api/v1/list/new', json=(payload),
       content_type='application/json'
     )
-    # import pdb; pdb.set_trace()
 
     self.assertEqual(200, response.status_code)
+
+    data = json.loads(response.data.decode('utf-8'))
+
+    cat_len = len(data['data']['attributes']['categories'])
+    self.assertEqual(6, cat_len)
+
+    access_len = len(data['data']['attributes']['categories']['Accessories'])
+    self.assertEqual(6, access_len)
+
+    first_access = data['data']['attributes']['categories']['Accessories'][0]
+    self.assertEqual(False, first_access['is_checked'])
+    self.assertEqual('Belts', first_access['name'])
+    self.assertEqual(0, first_access['quantity'])
+
+    beach_len = len(data['data']['attributes']['categories']['Beach'])
+    self.assertEqual(5, beach_len)
+
+    child_0_2_len = len(data['data']['attributes']['categories']['Child 0-2'])
+    self.assertEqual(27, child_0_2_len)
