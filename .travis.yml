@@ -9,18 +9,27 @@ install:
 - pip install -r requirements.txt
 before_script:
 - psql --version
+- psql -c 'create database pack_smart_dev;' -U postgres
 - psql -c 'create database pack_smart_test;' -U postgres
+env:
+  - DATABASE_URL=postgresql://localhost:5432/pack_smart_dev
 script:
+- export DATABASE_URL=postgresql://localhost:5432/pack_smart_dev
+- python3 manage.py db upgrade
+- export DATABASE_URL=postgresql://localhost:5432/pack_smart_test
+- python3 manage.py db upgrade
+- python3 manage.py db_seed
 - pytest
 deploy:
   provider: heroku
   api_key:
     secure:
-  app: your-heroku-app-name
+  app: pack-smart-be
   on:
-    repo: githubu_sername/repo_name
+    repo: Pack-Smart/pack-smart-be
     branch: main
   skip_cleanup: 'true'
   run:
     - pip install -r requirements.txt
     - python manage.py db upgrade
+

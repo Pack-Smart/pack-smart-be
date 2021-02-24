@@ -15,15 +15,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import text
 from sqlalchemy.dialects import postgresql
 from sqlalchemy import or_
-app = Flask(__name__)
-CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///pack-smart-dev'
-db = SQLAlchemy(app)
-
-
-
-# app = flask.Flask(__name__)
-# app.config["DEBUG"] = True
 
 def _item_payload(item):
   return {
@@ -33,29 +24,30 @@ def _item_payload(item):
     "is_checked": False
   }
 
-@app.route('/api/v1/list/new', methods=['POST'])
-def list():
-      ## not fully done need to talk to the front end and finish passing in the variables
-      data = request.get_json()
-      weathers = data['data']['attributes']['weather']
-      user_categories = data['data']['attributes']['categories']
-      genders = data['data']['attributes']['gender']
+class ItemsResource(Resource):
 
-      items = db.session.query(Item).filter(
-        or_(*[Item.weather.ilike(weather) for weather in weathers]),
-        or_(*[Item.category.like(category) for category in user_categories]),
-        or_(*[Item.gender.like(gender) for gender in genders])
-        )
+  def post(self):
+        ## not fully done need to talk to the front end and finish passing in the variables
+    data = request.get_json()
+    weathers = data['data']['attributes']['weather']
+    user_categories = data['data']['attributes']['categories']
+    genders = data['data']['attributes']['gender']
 
-      categories = {}
-      for item in items:
-        if item.category in categories:
-          categories[item.category].append(_item_payload(item))
-        else:
-          categories[item.category] = []
-          categories[item.category].append(_item_payload(item))
+    items = db.session.query(Item).filter(
+      or_(*[Item.weather.ilike(weather) for weather in weathers]),
+      or_(*[Item.category.like(category) for category in user_categories]),
+      or_(*[Item.gender.like(gender) for gender in genders])
+      )
 
-      category_obj = {
+    categories = {}
+    for item in items:
+      if item.category in categories:
+        categories[item.category].append(_item_payload(item))
+      else:
+        categories[item.category] = []
+        categories[item.category].append(_item_payload(item))
+
+    category_obj = {
         "data": {
         "id": datetime.now().strftime('%Y%m-%d%H-%M%S-') + str(uuid4()),
         "type": "Survey_Results",
@@ -66,12 +58,5 @@ def list():
       }
     }
 
-      return jsonify(category_obj)
+    return jsonify(category_obj)
 
-app.run()
-
-
-
-# @app.route('/api/v1/lists/new', methods=['GET'])
-# def index():
-#     items = Item.query.order_by(Item.name.asc()).all()
