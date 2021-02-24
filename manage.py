@@ -34,16 +34,6 @@ def db_seed():
     conn.commit()
 
     db.session.commit()
-
-    conn = psycopg2.connect("host=localhost dbname=pack_smart_test user=postgres")
-    cur = conn.cursor()
-    with open('items.csv', 'r') as f:
-        next(f) # Skip the header row.
-        cur.copy_from(f, 'items', sep=',')
-
-    conn.commit()
-
-    db.session.commit()
     print(f'obj count: {len(db.session.query(Item).all())}')
 
 

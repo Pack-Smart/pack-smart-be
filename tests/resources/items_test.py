@@ -1,6 +1,7 @@
 import json
 import unittest
 from copy import deepcopy
+import psycopg2
 
 from api import create_app, db
 from tests import db_drop_everything, assert_payload_field_type_value, \
@@ -13,6 +14,16 @@ class GetListItemsTest(unittest.TestCase):
     self.app_context = self.app.app_context()
     self.app_context.push()
     db.create_all()
+
+    conn = psycopg2.connect("host=localhost dbname=pack_smart_test user=postgres")
+    cur = conn.cursor()
+    with open('items.csv', 'r') as f:
+        next(f) # Skip the header row.
+        cur.copy_from(f, 'items', sep=',')
+
+    conn.commit()
+
+    db.session.commit()
     self.client = self.app.test_client()
 
     self.payload = {
@@ -33,6 +44,12 @@ class GetListItemsTest(unittest.TestCase):
         }
       }
     }
+
+  def tearDown(self):
+    db.session.remove()
+    db_drop_everything(db)
+    self.app_context.pop()
+
 
   def test_it_returns_a_list_of_items(self):
     payload = deepcopy(self.payload)
