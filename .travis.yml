@@ -33,6 +33,7 @@ deploy:
     - pip install -r requirements.txt
     - createdb pack_smart_dev
     - export DATABASE_URL=postgresql://localhost:5432/pack_smart_dev
-    - python manage.py db upgrade
-    - python manage.py db_seed
+    - python3 manage.py db migrate
+    - python3 manage.py db upgrade
+    - python3 manage.py db_seed
 
