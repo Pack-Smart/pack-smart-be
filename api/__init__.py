@@ -48,11 +48,13 @@ def create_app(config_name='default'):
     # use our 'config_name' to set up our config.py settings
     app.config.from_object(config[config_name])
 
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///pack-smart-dev'
     # set up our database
     db.init_app(app)
 
     # set up CORS
     CORS(app, resources={r"/*": {"origins": "*"}})
+    CORS(app)
 
     # set up Flask-RESTful
     api = ExtendedAPI(app)
@@ -78,4 +80,7 @@ def create_app(config_name='default'):
             "message": "resource not found"
         }), 404
 
+    from api.resources.items import ItemsResource
+
+    api.add_resource(ItemsResource, '/api/v1/list/new')
     return app
