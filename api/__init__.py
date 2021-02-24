@@ -53,7 +53,7 @@ def create_app(config_name='default'):
 
     # set up CORS
     CORS(app, resources={r"/*": {"origins": "*"}})
-
+    CORS(app)
     # set up Flask-RESTful
     api = ExtendedAPI(app)
 
@@ -77,5 +77,9 @@ def create_app(config_name='default'):
             "error": 404,
             "message": "resource not found"
         }), 404
+
+    from api.resources.items import ItemsResource
+
+    api.add_resource(ItemsResource, '/api/v1/list/new')
 
     return app
