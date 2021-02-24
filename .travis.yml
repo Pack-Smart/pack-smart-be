@@ -23,7 +23,7 @@ script:
 deploy:
   provider: heroku
   api_key:
-    secure:
+    secure: f3DJrFOtM8ceD/1Q3W3ZqjcIwraKUvmcblzhx0qMoQYArcNSdALJmr8ACRByfRXpQ/uALQn2pAORKmSUm7Tb5nvBf2zJYMDbasDIGZVPO401ffgSirsvFMAR0XJvmvsPDYUaLwSrdXGkcuvlHrjUXNkv92bxtyPpq/3Z/VOtNzjtoGSkuSJYCEwluqjSXkTVGPXUehMRAsygvc67Zm4ao+9phORGQEUGmpolVuath2SlrrmTe38zd5vh9cqZ05NUzVWfqXNWQQaU6oXAFvr731WIeqNR0mdHwp+0YuXtXlO7WLR2UMoWY95sf9PvFWyYivFrbCZRvryJ+rnpLCOZSeB5XHHV3Bg5YzJJt/XVZHW5J+jAf+zKbKip1Y7ouDd+vDdqXl/FiylM8tBcojsGXHzDhJJeF/dLk8xvZY9ZFPWuTu0RFny0xuR/4UWize+9x2weE0kLwI2+2hSTtp0OAg5kqAMtrw/RqzYLKJ2Le3f3C3jlwNMmNMf2o8iPZJSKAbkZIy9H7UaeMF/DCxyRcSRIRUQYzBlgPteSjZbeqZMvuC5KnnVP2DJYBOborqrtgyH7n3yjMpOUhfIifGmP/AEOYl1xaejRntGy2KkvK2ExsKozrxeT8D7q8woiGBsuzU3UI6c75mrwThZ+SdouXiqTfCu6p/Vw85AZ88xqaGI=
   app: pack-smart-be
   on:
     repo: Pack-Smart/pack-smart-be
