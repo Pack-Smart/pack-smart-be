@@ -67,7 +67,7 @@ class GetListItemsTest(unittest.TestCase):
     self.assertEqual(6, cat_len)
 
     access_len = len(data['data']['attributes']['categories']['Accessories'])
-    self.assertEqual(6, access_len)
+    self.assertEqual(5, access_len)
 
     first_access = data['data']['attributes']['categories']['Accessories'][0]
     self.assertEqual(False, first_access['is_checked'])
@@ -78,4 +78,4 @@ class GetListItemsTest(unittest.TestCase):
     self.assertEqual(5, beach_len)
 
     child_0_2_len = len(data['data']['attributes']['categories']['Child 0-2'])
-    self.assertEqual(27, child_0_2_len)
+    self.assertEqual(22, child_0_2_len)
