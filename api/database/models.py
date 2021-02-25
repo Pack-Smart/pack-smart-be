@@ -1,71 +1,57 @@
-import bleach
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy.sql.sqltypes import Boolean
 from api import db
-
-
+from sqlalchemy.orm import relationship, backref
 class Item(db.Model):
     """
     Item Model
     """
     __tablename__ = 'items'
 
-    # Auto-incrementing, unique primary key
     id = Column(Integer, primary_key=True)
-    # unique item
-    name = Column(String(80), nullable=False)
-    # category
+    item = Column(String(80), nullable=False)
     category = Column(String(100), nullable=False)
-    # weather
     weather = Column(String(80), nullable=False)
-    # gender
     gender = Column(String(80), nullable=False)
 
-    def __init__(self, name, category, weather, gender):
-        if name is not None:
-            name = bleach.clean(name).strip()
-            if name == '':
-                name = None
+    packing_lists = relationship("PackingLists", secondary="item_lists")
 
-        if category is not None:
-            category = bleach.clean(category).strip()
-            if category == '':
-                category = None
+class Users(db.Model):
+    """
+    User Model
+    """
+    __tablename__ = 'users'
 
-        if weather is not None:
-            weather = bleach.clean(weather).strip()
-            if weather == '':
-                weather = None
+    id = Column(Integer, primary_key=True)
+    username = Column(String(20), unique=True, nullable=False)
 
-        if gender is not None:
-            gender = bleach.clean(gender).strip()
-            if gender == '':
-                gender = None
+    packing_lists = relationship("PackingLists")
 
-        self.name = name
-        self.category = category
-        self.weather = weather
-        self.gender = gender
+class PackingLists(db.Model):
+    """
+    Packing Lists Model
+    """
+    __tablename__ = 'packing_lists'
 
-    def insert(self):
-        """
-        inserts a new model into a database
-        the model must have a unique username
-        the model must have a unique id or null id
-        """
-        db.session.add(self)
-        db.session.commit()
+    id = Column(Integer, primary_key=True)
+    list_title = Column(String(80), nullable=False)
+    user_id = Column(Integer, ForeignKey('users.id'))
+    num_of_days = Column(Integer, nullable=False)
+    destination = Column(String(80), nullable=False)
 
-    def update(self):
-        """
-        updates a new model into a database
-        the model must exist in the database
-        """
-        db.session.commit()
+    items = relationship("Item", secondary="item_lists")
 
-    def delete(self):
-        """
-        deletes model from database
-        the model must exist in the database
-        """
-        db.session.delete(self)
-        db.session.commit()
+class ItemLists(db.Model):
+    """
+    Item Lists Model
+    """
+    __tablename__ = 'item_lists'
+
+    id = Column(Integer, primary_key=True)
+    packing_list_id = Column(Integer, ForeignKey('packing_lists.id'))
+    item_id = Column(Integer, ForeignKey('items.id'))
+    quantity = Column(Integer, nullable=False)
+    is_checked = Column(Boolean, nullable=False)
+
+    packing_lists = relationship(PackingLists, backref=backref("item_lists", cascade="all, delete-orphan"))
+    items = relationship(Item, backref=backref("item_lists", cascade="all, delete-orphan"))

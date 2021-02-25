@@ -18,7 +18,7 @@ from sqlalchemy import or_
 
 def _item_payload(item):
   return {
-    "name": item.name,
+    "name": item.item,
     "item_id": item.id,
     "quantity": 0,
     "is_checked": False
