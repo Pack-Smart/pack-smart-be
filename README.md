@@ -72,6 +72,8 @@ You can follow directions via the Setup documentation, and please see below for 
    }
     ```
 
+To shut off your virtual environment, run `deactivate`.
+
 Note: This project was created using a [starter repo](https://github.com/iandouglas/flask-restful-travis-heroku). Please check it out for more details and context about the setup.
 
 ## Running the Tests
