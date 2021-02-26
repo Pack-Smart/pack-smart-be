@@ -27,6 +27,10 @@ class Users(db.Model):
 
     packing_lists = relationship("PackingLists")
 
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
 class PackingLists(db.Model):
     """
     Packing Lists Model
@@ -40,6 +44,10 @@ class PackingLists(db.Model):
     destination = Column(String(80), nullable=False)
 
     items = relationship("Item", secondary="item_lists")
+    
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
 
 class ItemLists(db.Model):
     """
