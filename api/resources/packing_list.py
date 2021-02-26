@@ -17,6 +17,7 @@ def _packing_list_payload(packing_list):
 class PackingListResource(Resource):
 
   def get(self, user_id):
+    import pdb; pdb.set_trace()
     if bool(db.session.query(Users).filter(Users.id == user_id).first()):
         packing_lists = db.session.query(PackingLists).filter(PackingLists.user_id==user_id).all()
         packing_lists_formatted = []
@@ -74,8 +75,15 @@ class PackingListsResource(Resource):
 
 class UserPackingListsResource(Resource):
   def get(self, packing_list_id):
-    pass
+        pass
 
   def delete(self, packing_list_id):
-    pass
+    packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
+    
+    if bool(db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()):
+      packing_list.delete()
+      return jsonify({"success": "Packing list has been deleted"})
+    else:
+      return jsonify({"error": "Packing list does not exists"})
+
       
