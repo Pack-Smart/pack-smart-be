@@ -79,7 +79,9 @@ def create_app(config_name='default'):
         }), 404
 
     from api.resources.items import ItemsResource
+    from api.resources.packing_list import PackingListResource
 
     api.add_resource(ItemsResource, '/api/v1/list/new')
+    api.add_resource(PackingListResource, '/api/v1/users/<user_id>/packing_lists')
 
     return app
