@@ -41,6 +41,10 @@ class PackingLists(db.Model):
 
     items = relationship("Item", secondary="item_lists")
 
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
 class ItemLists(db.Model):
     """
     Item Lists Model
