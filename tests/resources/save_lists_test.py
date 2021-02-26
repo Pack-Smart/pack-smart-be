@@ -1,6 +1,7 @@
 import json
 import unittest
 from copy import deepcopy
+from api.database.models import Users
 import psycopg2
 from api import create_app, db
 from tests import db_drop_everything
@@ -13,14 +14,13 @@ class SavePackingListTest(unittest.TestCase):
     db.create_all()
     self.client = self.app.test_client()
 
-
     self.payload = {
       "data": {
         "userID": 1,
         "tripDetails": {
           "title": "Vice City",
-          " destination": "Miami",
-          " number_of_days": 2
+          "destination": "Miami",
+          "number_of_days": 2
         },
         "items": [
           {
@@ -38,10 +38,12 @@ class SavePackingListTest(unittest.TestCase):
     self.app_context.pop()
 
   def test_it_saves_the_packing_list(self):
+    user_1 = Users(username='kd9madrid')
+    user_1.insert()
     payload = deepcopy(self.payload)
 
     response = self.client.post(
-      '/api/v1/packing_list/new', json=(payload),
+      '/api/v1/packing_lists/new', json=(payload),
       content_type='application/json'
     )
 
