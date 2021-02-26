@@ -67,4 +67,7 @@ class PackingListsResource(Resource):
 
       item_list.insert()
 
-    return "Packing List Saved!"
+    return {
+      "message": "Packing List Saved!",
+      "status_code": 200
+    }
