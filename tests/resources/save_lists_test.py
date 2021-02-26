@@ -1,7 +1,7 @@
 import json
 import unittest
 from copy import deepcopy
-from api.database.models import Users
+from api.database.models import Users, Item
 import psycopg2
 from api import create_app, db
 from tests import db_drop_everything
@@ -25,8 +25,13 @@ class SavePackingListTest(unittest.TestCase):
         "items": [
           {
             "is_checked": True,
-            "item_id": 3,
+            "item_id": 1,
             "quantity": 1
+          },
+          {
+            "is_checked": True,
+            "item_id": 2,
+            "quantity": 15
           }
         ]
       }
@@ -40,6 +45,14 @@ class SavePackingListTest(unittest.TestCase):
   def test_it_saves_the_packing_list(self):
     user_1 = Users(username='kd9madrid')
     user_1.insert()
+
+    item_1 = Item(item='Hat',category='Accessory',weather='Hot',gender='All')
+    item_2 = Item(item='Watch',category='Accessory',weather='All',gender='All')
+
+    item_1.insert()
+    item_2.insert()
+
+
     payload = deepcopy(self.payload)
 
     response = self.client.post(
@@ -48,3 +61,10 @@ class SavePackingListTest(unittest.TestCase):
     )
 
     self.assertEqual(200, response.status_code)
+
+    data = json.loads(response.data.decode('utf-8'))
+
+    self.assertEqual('Packing List Saved!', data)
+
+
+
