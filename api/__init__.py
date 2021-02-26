@@ -80,8 +80,10 @@ def create_app(config_name='default'):
 
     from api.resources.items import ItemsResource
     from api.resources.packing_list import PackingListResource
+    from api.resources.packing_list import PackingListsResource
 
     api.add_resource(ItemsResource, '/api/v1/list/new')
-    api.add_resource(PackingListResource, '/api/v1/packing_lists/new')
+    api.add_resource(PackingListsResource, '/api/v1/packing_lists/new')
+    api.add_resource(PackingListResource, '/api/v1/users/<user_id>/packing_lists')
 
     return app
