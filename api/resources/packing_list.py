@@ -72,9 +72,36 @@ class PackingListsResource(Resource):
     }
 
 
+def _item_list_payload(item_list, item):
+  return {
+    "item": item.item,
+    "quantity": item_list.quantity,
+    "is_checked": item_list.is_checked
+  }
 class UserPackingListsResource(Resource):
   def get(self, packing_list_id):
-        pass
+    packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
+    item_lists = packing_list.item_lists
+    categories = {}
+
+    for item_list in item_lists:
+      if item_list.items.category in categories:
+        categories[item_list.items.category].append(_item_list_payload(item_list, item_list.items))
+      else:
+        categories[item_list.items.category] = []
+        categories[item_list.items.category].append(_item_list_payload(item_list, item_list.items))
+    
+    category_obj = {
+        "data": {
+        "id": datetime.now().strftime('%Y%m-%d%H-%M%S-') + str(uuid4()),
+        "type": "Item_List",
+        "attributes": {
+          "categories": categories
+        }
+      }
+    }
+
+    return jsonify(category_obj)
 
   def delete(self, packing_list_id):
     packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
