@@ -103,7 +103,13 @@ class UserPackingListsResource(Resource):
 
     return jsonify(category_obj)
 
-
   def delete(self, packing_list_id):
-    pass
+    packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
+    
+    if bool(db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()):
+      packing_list.delete()
+      return jsonify({"success": "Packing list has been deleted"})
+    else:
+      return jsonify({"error": "Packing list does not exists"})
+
       

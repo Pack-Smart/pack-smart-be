@@ -47,10 +47,14 @@ class PackingLists(db.Model):
     num_of_days = Column(Integer, nullable=False)
     destination = Column(String(80), nullable=False)
 
-    items = relationship("Item", secondary="item_lists")
+    items = relationship("Item",secondary="item_lists")
 
     def insert(self):
         db.session.add(self)
+        db.session.commit()
+    
+    def delete(self):
+        db.session.delete(self)
         db.session.commit()
 
 class ItemLists(db.Model):
