@@ -16,6 +16,10 @@ class Item(db.Model):
 
     packing_lists = relationship("PackingLists", secondary="item_lists")
 
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
 class Users(db.Model):
     """
     User Model
@@ -63,3 +67,7 @@ class ItemLists(db.Model):
 
     packing_lists = relationship(PackingLists, backref=backref("item_lists", cascade="all, delete-orphan"))
     items = relationship(Item, backref=backref("item_lists", cascade="all, delete-orphan"))
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
