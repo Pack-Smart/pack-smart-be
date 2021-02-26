@@ -27,6 +27,10 @@ class Users(db.Model):
 
     packing_lists = relationship("PackingLists")
 
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
 class PackingLists(db.Model):
     """
     Packing Lists Model
