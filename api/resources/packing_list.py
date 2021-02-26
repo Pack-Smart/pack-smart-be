@@ -18,6 +18,7 @@ class PackingListResource(Resource):
     list_title = data['data']['tripDetails']['title']
     number_of_days = data['data']['tripDetails']['number_of_days']
     destination = data['data']['tripDetails']['destination']
+    items = data['data']['items']
 
     packing_list = PackingLists(
       list_title=list_title,
@@ -27,5 +28,15 @@ class PackingListResource(Resource):
     )
 
     packing_list.insert()
+
+    for item in items:
+      item_list = ItemLists(
+        item_id=item['item_id'],
+        packing_list_id=packing_list.id,
+        quantity=item['quantity'],
+        is_checked=item['is_checked']
+      )
+
+      item_list.insert()
 
     return "Packing List Saved!"
