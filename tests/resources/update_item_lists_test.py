@@ -15,10 +15,10 @@ class GetAllUserPackingLists(unittest.TestCase):
     self.app_context.push()
     db.create_all()
     self.client = self.app.test_client()
-    
+
     self.user_1 = Users(username='EternalFlame')
     self.user_1.insert()
-    
+
     self.packing_list_1 = PackingLists(list_title='To Mars', user_id=1, num_of_days=6, destination="Mars")
     self.packing_list_1.insert()
 
@@ -65,7 +65,7 @@ class GetAllUserPackingLists(unittest.TestCase):
     self.app_context.pop()
 
   def test_it_can_update_item_lists(self):
-    
+
     self.assertEqual(5, self.item_list_1.quantity)
     self.assertEqual(False, self.item_list_1.is_checked)
 
@@ -75,14 +75,14 @@ class GetAllUserPackingLists(unittest.TestCase):
     self.assertEqual(20, self.item_list_3.quantity)
     self.assertEqual(True, self.item_list_3.is_checked)
     payload = deepcopy(self.payload)
-    
+
     response = self.client.patch(
       '/api/v1/item_list/update', json=(payload),
       content_type='application/json'
     )
 
     self.assertEqual(200, response.status_code)
-    
+
     self.assertEqual(16, self.item_list_1.quantity)
     self.assertEqual(True, self.item_list_1.is_checked)
 
