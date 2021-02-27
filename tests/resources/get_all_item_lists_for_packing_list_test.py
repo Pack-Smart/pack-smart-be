@@ -69,6 +69,6 @@ class GetAllItemLists(unittest.TestCase):
 
     self.assertEqual(2, len(data['attributes']['categories']['Accessories']))
     self.assertEqual(1, len(data['attributes']['categories']['Toiletries']))
-    self.assertEqual('Hats', data['attributes']['categories']['Accessories'][0]['item'])
-    self.assertEqual('Belts', data['attributes']['categories']['Accessories'][1]['item'])
-    self.assertEqual('Birth Control', data['attributes']['categories']['Toiletries'][0]['item'])
+    self.assertEqual('Hats', data['attributes']['categories']['Accessories'][0]['name'])
+    self.assertEqual('Belts', data['attributes']['categories']['Accessories'][1]['name'])
+    self.assertEqual('Birth Control', data['attributes']['categories']['Toiletries'][0]['name'])

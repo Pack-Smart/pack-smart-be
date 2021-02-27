@@ -74,7 +74,9 @@ class PackingListsResource(Resource):
 
 def _item_list_payload(item_list, item):
   return {
-    "item": item.item,
+    "id": item_list.id,
+    "item_id": item.id,
+    "name": item.item,
     "quantity": item_list.quantity,
     "is_checked": item_list.is_checked
   }
@@ -90,7 +92,7 @@ class UserPackingListsResource(Resource):
       else:
         categories[item_list.items.category] = []
         categories[item_list.items.category].append(_item_list_payload(item_list, item_list.items))
-    
+
     category_obj = {
         "data": {
         "id": datetime.now().strftime('%Y%m-%d%H-%M%S-') + str(uuid4()),
@@ -105,11 +107,10 @@ class UserPackingListsResource(Resource):
 
   def delete(self, packing_list_id):
     packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
-    
+
     if bool(db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()):
       packing_list.delete()
       return jsonify({"success": "Packing list has been deleted"})
     else:
       return jsonify({"error": "Packing list does not exists"})
 
-      
