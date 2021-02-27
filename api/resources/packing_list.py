@@ -76,7 +76,8 @@ def _item_list_payload(item_list, item):
   return {
     "name": item.item,
     "quantity": item_list.quantity,
-    "is_checked": item_list.is_checked
+    "is_checked": item_list.is_checked,
+    "item_lists_id": item_list.id
   }
 class UserPackingListsResource(Resource):
   def get(self, packing_list_id):
