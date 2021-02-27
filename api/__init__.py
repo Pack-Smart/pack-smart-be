@@ -88,6 +88,6 @@ def create_app(config_name='default'):
     api.add_resource(PackingListsResource, '/api/v1/packing_lists/new')
     api.add_resource(PackingListResource, '/api/v1/users/<user_id>/packing_lists')
     api.add_resource(UserPackingListsResource, '/api/v1/packing_lists/<packing_list_id>')
-    api.add_resource(ItemListResource, '/api/v1/item_list/<item_list_id>')
+    api.add_resource(ItemListResource, '/api/v1/item_list/update')
 
     return app
