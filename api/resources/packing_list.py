@@ -105,6 +105,17 @@ class UserPackingListsResource(Resource):
 
     return jsonify(category_obj)
 
+  def patch(self, packing_list_id):
+    db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).update(request.get_json())
+    db.session.commit()
+
+    packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
+    packing_list_payload = _packing_list_payload(packing_list)
+
+    return packing_list_payload, 200
+
+
+
   def delete(self, packing_list_id):
     packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
 
