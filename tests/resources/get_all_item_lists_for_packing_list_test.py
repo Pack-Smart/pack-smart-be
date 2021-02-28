@@ -32,10 +32,10 @@ class GetAllItemLists(unittest.TestCase):
     self.item_5.insert()
 
 
-    self.packing_list_1 = PackingLists(list_title = "Hawaii Trip", user_id = 1, num_of_days = 7, destination = "Hawaii")
+    self.packing_list_1 = PackingLists(title = "Hawaii Trip", user_id = 1, num_of_days = 7, destination = "Hawaii")
     self.packing_list_1.insert()
 
-    self.packing_list_2 = PackingLists(list_title = "Paris Trip", user_id = 2, num_of_days = 20, destination = "Paris")
+    self.packing_list_2 = PackingLists(title = "Paris Trip", user_id = 2, num_of_days = 20, destination = "Paris")
     self.packing_list_2.insert()
 
     self.item_list_1 = ItemLists(packing_list_id = 1, item_id = self.item_1.id, quantity = 5, is_checked = False)

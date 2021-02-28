@@ -27,9 +27,9 @@ class GetAllUserPackingLists(unittest.TestCase):
     self.user_1 = Users(username='EternalFlame')
     self.user_1.insert()
 
-    self.packing_list_1 = PackingLists(list_title='To Mars', user_id=1, num_of_days=6, destination="Mars")
+    self.packing_list_1 = PackingLists(title='To Mars', user_id=1, num_of_days=6, destination="Mars")
     self.packing_list_1.insert()
-    self.packing_list_2 = PackingLists(list_title='London', user_id=1, num_of_days=2, destination="UK")
+    self.packing_list_2 = PackingLists(title='London', user_id=1, num_of_days=2, destination="UK")
     self.packing_list_2.insert()
 
     self.item_1 = Item(item='Hat',category='Accessory',weather='Hot',gender='All')

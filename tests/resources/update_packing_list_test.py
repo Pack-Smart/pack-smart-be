@@ -19,7 +19,7 @@ class UpdatePackingList(unittest.TestCase):
     self.user_1.insert()
 
     self.payload = {
-      "list_title": "To Jupiter",
+      "title": "To Jupiter",
       "num_of_days": 4,
       "destination": "Jupiter"
     }
@@ -30,7 +30,7 @@ class UpdatePackingList(unittest.TestCase):
     self.app_context.pop()
 
   def test_it_updates_packing_list(self):
-    packing_list_1 = PackingLists(list_title='To Mars', user_id=1, num_of_days=6, destination="Mars")
+    packing_list_1 = PackingLists(title='To Mars', user_id=1, num_of_days=6, destination="Mars")
     packing_list_1.insert()
 
     response = self.client.patch(

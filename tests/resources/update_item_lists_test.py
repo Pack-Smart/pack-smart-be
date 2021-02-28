@@ -19,7 +19,7 @@ class GetAllUserPackingLists(unittest.TestCase):
     self.user_1 = Users(username='EternalFlame')
     self.user_1.insert()
 
-    self.packing_list_1 = PackingLists(list_title='To Mars', user_id=1, num_of_days=6, destination="Mars")
+    self.packing_list_1 = PackingLists(title='To Mars', user_id=1, num_of_days=6, destination="Mars")
     self.packing_list_1.insert()
 
     self.item_1 = Item(category = 'Accessories', weather = 'ALl', gender = 'All', item = 'Hats')

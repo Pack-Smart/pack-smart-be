@@ -28,11 +28,11 @@ class GetAllUserPackingLists(unittest.TestCase):
     user_2 = Users(username='CrimsonGhost')
     user_2.insert()
 
-    packing_list_1 = PackingLists(list_title='To Mars', user_id=1, num_of_days=6, destination="Mars")
+    packing_list_1 = PackingLists(title='To Mars', user_id=1, num_of_days=6, destination="Mars")
     packing_list_1.insert()
-    packing_list_2 = PackingLists(list_title='London', user_id=1, num_of_days=2, destination="UK")
+    packing_list_2 = PackingLists(title='London', user_id=1, num_of_days=2, destination="UK")
     packing_list_2.insert()
-    packing_list_3 = PackingLists(list_title='Tokyo', user_id=2, num_of_days=7, destination="Japan")
+    packing_list_3 = PackingLists(title='Tokyo', user_id=2, num_of_days=7, destination="Japan")
     packing_list_3.insert()
 
     response = self.client.get(
@@ -44,7 +44,7 @@ class GetAllUserPackingLists(unittest.TestCase):
     
     self.assertEqual(2, len(data['attributes']['PackingLists']))
     self.assertEqual(packing_list_1.id, data['attributes']['PackingLists'][1]['list_id'])
-    self.assertEqual(packing_list_1.list_title, data['attributes']['PackingLists'][1]['title'])
+    self.assertEqual(packing_list_1.title, data['attributes']['PackingLists'][1]['title'])
     self.assertEqual(packing_list_1.num_of_days, data['attributes']['PackingLists'][1]['num_of_days'])
     self.assertEqual(packing_list_1.destination, data['attributes']['PackingLists'][1]['destination'])
 
