@@ -10,7 +10,7 @@ from uuid import uuid4
 def _packing_list_payload(packing_list):
       return {
     "list_id": packing_list.id,
-    "title": packing_list.list_title,
+    "title": packing_list.title,
     "num_of_days": packing_list.num_of_days,
     "destination": packing_list.destination
   }
@@ -43,13 +43,13 @@ class PackingListsResource(Resource):
   def post(self):
     data = request.get_json()
     user_id = data['data']['userID']
-    list_title = data['data']['tripDetails']['title']
+    title = data['data']['tripDetails']['title']
     number_of_days = data['data']['tripDetails']['number_of_days']
     destination = data['data']['tripDetails']['destination']
     items = data['data']['items']
 
     packing_list = PackingLists(
-      list_title=list_title,
+      title=title,
       user_id=user_id,
       num_of_days=number_of_days,
       destination=destination

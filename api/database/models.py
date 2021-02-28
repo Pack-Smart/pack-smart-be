@@ -42,7 +42,7 @@ class PackingLists(db.Model):
     __tablename__ = 'packing_lists'
 
     id = Column(Integer, primary_key=True)
-    list_title = Column(String(80), nullable=False)
+    title = Column(String(80), nullable=False)
     user_id = Column(Integer, ForeignKey('users.id'))
     num_of_days = Column(Integer, nullable=False)
     destination = Column(String(80), nullable=False)
