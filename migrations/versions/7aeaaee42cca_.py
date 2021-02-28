@@ -26,7 +26,7 @@ def upgrade():
     )
     op.create_table('packing_lists',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('list_title', sa.String(length=80), nullable=False),
+    sa.Column('title', sa.String(length=80), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('num_of_days', sa.Integer(), nullable=False),
     sa.Column('destination', sa.String(length=80), nullable=False),
