@@ -15,7 +15,6 @@ env:
   - DATABASE_URL=postgresql://localhost:5432/pack_smart_dev
 script:
 - export DATABASE_URL=postgresql://localhost:5432/pack_smart_test
-- python3 manage.py db upgrade
 - pytest
 deploy:
   provider: heroku
