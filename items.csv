@@ -128,7 +128,7 @@ id,item,category,season,gender
 127,Kindle,Misc.,All,All
 128,Pen/Pencil,Misc.,All,All
 129,Recreational Drugs,Misc.,All,All
-131,Travel Guid Book,Misc.,All,All
+131,Travel Guide Book,Misc.,All,All
 130,Water Bottle,Misc.,All,All
 132,Event tickets,Nightlife,All,All
 133,Night Life Outfit,Nightlife,All,All
@@ -163,7 +163,7 @@ id,item,category,season,gender
 162,Medications,Toiletries,All,All
 163,Menstrual Products,Toiletries,All,Female Typical
 164,Moisturizer/Lotion,Toiletries,All,All
-165,Nail file/clippers,Toiletries,All,All
+165,Nail File/Clippers,Toiletries,All,All
 166,Pain Medications,Toiletries,All,All
 167,Razors,Toiletries,All,All
 168,Shampoo,Toiletries,All,All
