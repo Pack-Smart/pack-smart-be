@@ -20,7 +20,7 @@ class SavePackingListTest(unittest.TestCase):
         "tripDetails": {
           "title": "Vice City",
           "destination": "Miami",
-          "number_of_days": 2
+          "duration": 2
         },
         "items": [
           {

@@ -37,9 +37,9 @@ class GetListItemsTest(unittest.TestCase):
           "tripDetails": {
               "title": "Night life",
               "destination": "Vice city",
-              "number_of_days": "7"
+              "duration": "7"
             },
-          "number_of_days": "7",
+          "duration": "7",
           "categories": ["Clothing", "Accessories", "Toiletries", "Essentials", "Wedding", "Beach", "Child 0-2"]
         }
       }

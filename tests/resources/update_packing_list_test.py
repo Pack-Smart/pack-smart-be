@@ -20,7 +20,7 @@ class UpdatePackingList(unittest.TestCase):
 
     self.payload = {
       "title": "To Jupiter",
-      "num_of_days": 4,
+      "duration": 4,
       "destination": "Jupiter"
     }
 
@@ -43,7 +43,7 @@ class UpdatePackingList(unittest.TestCase):
 
     self.assertEqual(1, data['list_id'])
     self.assertEqual('To Jupiter', data['title'])
-    self.assertEqual(4, data['num_of_days'])
+    self.assertEqual(4, data['duration'])
     self.assertEqual('Jupiter', data['destination'])
 
 

@@ -45,7 +45,7 @@ class GetAllUserPackingLists(unittest.TestCase):
     self.assertEqual(2, len(data['attributes']['PackingLists']))
     self.assertEqual(packing_list_1.id, data['attributes']['PackingLists'][1]['list_id'])
     self.assertEqual(packing_list_1.title, data['attributes']['PackingLists'][1]['title'])
-    self.assertEqual(packing_list_1.num_of_days, data['attributes']['PackingLists'][1]['num_of_days'])
+    self.assertEqual(packing_list_1.num_of_days, data['attributes']['PackingLists'][1]['duration'])
     self.assertEqual(packing_list_1.destination, data['attributes']['PackingLists'][1]['destination'])
 
   def test_it_returns_user_does_not_exist_error(self):
