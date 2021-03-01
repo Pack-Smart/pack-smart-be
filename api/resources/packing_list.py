@@ -10,7 +10,7 @@ def _packing_list_payload(packing_list):
       return {
     "list_id": packing_list.id,
     "title": packing_list.title,
-    "num_of_days": packing_list.num_of_days,
+    "duration": packing_list.num_of_days,
     "destination": packing_list.destination
   }
 
@@ -43,7 +43,7 @@ class PackingListsResource(Resource):
     data = request.get_json()
     user_id = data['data']['userID']
     title = data['data']['tripDetails']['title']
-    number_of_days = data['data']['tripDetails']['number_of_days']
+    number_of_days = data['data']['tripDetails']['duration']
     destination = data['data']['tripDetails']['destination']
     items = data['data']['items']
 
