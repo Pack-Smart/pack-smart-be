@@ -64,8 +64,8 @@ class SavePackingListTest(unittest.TestCase):
 
     data = json.loads(response.data.decode('utf-8'))
 
-    self.assertEqual('Packing List Saved!', data['message'])
-    self.assertEqual(200, data['status_code'])
+    self.assertEqual('Packing List Saved!', data['data']['message'])
+    self.assertEqual(200, data['data']['status_code'])
 
 
 
