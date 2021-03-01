@@ -56,6 +56,7 @@ class PackingListsResource(Resource):
 
     packing_list.insert()
 
+    # can maybe user a bulk insert mapping instead
     for item in items:
       item_list = ItemLists(
         item_id=item['item_id'],
@@ -67,8 +68,11 @@ class PackingListsResource(Resource):
       item_list.insert()
 
     return {
-      "message": "Packing List Saved!",
-      "status_code": 200
+      "data": {
+        "listId": packing_list.id,
+        "message": "Packing List Saved!",
+        "status_code": 200
+      }
     }
 
 
