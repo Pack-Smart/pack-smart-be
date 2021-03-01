@@ -57,7 +57,7 @@ You can follow directions via the Setup documentation, and please see below for 
          tripDetails: {
            title: quizData.name,
            destination: quizData.destination,
-           number_of_days: quizData.number_of_days,
+           duration: quizData.duration,
          },
          categories: [
            'Accessories',
@@ -97,7 +97,7 @@ An example of a call from the frontend might look like:
             "gender": ["All", "Male"],
             "weather": ["All", "%hot%", "%rainy%"],
             "destination": "Miami",
-            "number_of_days": "7",
+            "duration": "7",
             "categories": ["Wedding", "Beach", "Child_all", "Child_0-2"]
         }
     }

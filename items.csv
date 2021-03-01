@@ -17,163 +17,197 @@ id,item,category,season,gender
 16,Work Clothes,Business,All,All
 17,Work Computer,Business,All,All
 18,Work Phone,Business,All,All
-19,Baby lotion,Child 0-2,All,All
-20,Baby Wash,Child 0-2,All,All
-21,Baby/Toddler food,Child 0-2,All,All
-22,Bibs,Child 0-2,All,All
-23,Blanket,Child 0-2,All,All
-24,Bottle Brush,Child 0-2,All,All
-25,Bottles,Child 0-2,All,All
-26,Breast Feeding Cover,Child 0-2,All,All
-27,Burp Cloths,Child 0-2,All,All
-28,Car Seat,Child 0-2,All,All
-29,Changing Pad,Child 0-2,All,All
-30,Diaper Bag,Child 0-2,All,All
-31,Diaper Cream,Child 0-2,All,All
-32,Diapers,Child 0-2,All,All
-33,Formula,Child 0-2,All,All
-34,Pacifier,Child 0-2,All,All
-35,Pack 'n Play,Child 0-2,All,All
-36,Pajamas,Child 0-2,All,All
-37,Stroller,Child 0-2,All,All
-38,Stuffy,Child 0-2,All,All
-39,Sun Hat,Child 0-2,All,All
-40,Teething Rings,Child 0-2,All,All
-41,Blanket,Child 3-6,All,All
-42,Car Seat,Child 3-6,All,All
-43,Diaper Cream,Child 3-6,All,All
-44,Juice packets,Child 3-6,All,All
-45,Kid Snacks,Child 3-6,All,All
-46,Pajamas,Child 3-6,All,All
-47,Pull-ups/Diapers,Child 3-6,All,All
-48,Sippy Cup,Child 3-6,All,All
-49,Small Toys,Child 3-6,All,All
-50,Stroller,Child 3-6,All,All
-51,Stuffy,Child 3-6,All,All
-52,Sun Hat,Child 3-6,All,All
-53,Action Figures,Child 7-12,All,All
-54,Age-appropriate Books,Child 7-12,All,All
-55,Car Seat/Booster Seat,Child 7-12,All,All
-56,Coloring Book,Child 7-12,All,All
-57,Juice packets,Child 7-12,All,All
-58,Kid Snacks,Child 7-12,All,All
-59,Pajamas,Child 7-12,All,All
-60,Small Toys,Child 7-12,All,All
-61,Sun Hat,Child 7-12,All,All
-62,Travel Journal,Child 7-12,All,All
-63,Washable Markers,Child 7-12,All,All
-64,Water Bottle,Child 7-12,All,All
-65,Writing Utensils,Child 7-12,All,All
-66,Baby/Child Medications,Child All,All,All
-67,Bandaids,Child All,All,All
-71,Books/Electronics/Games,Child All,All,All
-68,Child First Aid Kit,Child All,All,All
-69,Child Tweezers,Child All,All,All
-70,Extra Changes of clothes,Child All,All,All
-72,Thermometer,Child All,All,All
-73,Wipes,Child All,All,All
-74,Ziplock Bags,Child All,All,All
-75,Blouses/Dress Shirts,Clothing,All,All
-76,Boots,Clothing,Cool Cold,All
-77,Bras,Clothing,All,Female Typical
-78,Downcoat/Parka,Clothing,Cold,All
-79,Dresses,Clothing,Warm Hot,Female Typical
-80,Jeans,Clothing,All,All
-81,Leggings,Clothing,All,Female Typical
-82,Light Coat,Clothing,Cool,All
-83,Longsleeves,Clothing,Cool Cold,All
-84,Pajamas,Clothing,All,All
-85,Pants,Clothing,Cool,All
-86,Raincoat,Clothing,Rainy,All
-87,Sandals/Flip Flops,Clothing,Warm Hot,All
-88,Shoes,Clothing,All,All
-89,Shorts,Clothing,Warm Hot,All
-90,Skirts,Clothing,Warm Hot,Female Typical
-91,Sneakers,Clothing,All,All
-92,Socks,Clothing,All,All
-93,Sweaters,Clothing,Cool Cold,All
-94,Sweatshirts,Clothing,Cool Cold,All
-95,T-Shirts,Clothing,All,All
-96,Tank Tops,Clothing,Hot,All
-97,Underwear,Clothing,All,All
-98,Wool Socks,Clothing,Cold,All
-99,Work Out Bottoms,Clothing,All,All
-100,Work Out Tops,Clothing,All,All
-101,Work Out Undergarments,Clothing,All,All
-102,Cash,Essentials,All,All
-103,Eye-glasses,Essentials,All,All
-104,Hand Sanitizer,Essentials,All,All
-105,House/Car Keys,Essentials,All,All
-106,ID,Essentials,All,All
-107,Itinerary,Essentials,All,All
-108,Mask,Essentials,All,All
-109,Passport,Essentials,All,All
-110,Phone,Essentials,All,All
-111,Phone Charger,Essentials,All,All
-112,Wallet,Essentials,All,All
-113,Backpack,Hiking,All,All
-114,Bug Spray,Hiking,All,All
-115,Compass,Hiking,All,All
-116,Ferro Rod,Hiking,All,All
-117,Headlamp,Hiking,All,All
-118,Hiking Poles,Hiking,All,All
-119,Hiking Shoes,Hiking,All,All
-120,Hiking Socks,Hiking,All,All
-121,Map,Hiking,All,All
-122,Book,Misc.,All,All
-123,Camera,Misc.,All,All
-124,Camera Charger,Misc.,All,All
-125,Cards,Misc.,All,All
-126,Journal,Misc.,All,All
-127,Kindle,Misc.,All,All
-128,Pen/Pencil,Misc.,All,All
-129,Recreational Drugs,Misc.,All,All
-131,Travel Guide Book,Misc.,All,All
-130,Water Bottle,Misc.,All,All
-132,Event tickets,Nightlife,All,All
-133,Night Life Outfit,Nightlife,All,All
-134,Buff or neckwarmer,Skiing,All,All
-135,Goggles,Skiing,All,All
-136,Hand & Toe Warmers,Skiing,All,All
-137,Helmet,Skiing,All,All
-138,Hot Tub Attire,Skiing,All,All
-139,Long Underwear,Skiing,All,All
-140,Midlayer,Skiing,All,All
-141,Outerlayer shell,Skiing,All,All
-142,Poles,Skiing,All,All
-143,Ski Boots,Skiing,All,All
-144,Ski Gloves,Skiing,All,All
-145,Ski Pants,Skiing,All,All
-146,Ski Pass,Skiing,All,All
-147,Ski Socks,Skiing,All,All
-148,Ski Strap,Skiing,All,All
-149,Skis,Skiing,All,All
-150,Beard trimmer,Toiletries,All,Male Typical
-151,Birth Control,Toiletries,All,Female Typical
-152,Chapstick,Toiletries,All,All
-153,Condoms,Toiletries,All,All
-154,Deodorant,Toiletries,All,All
-155,E.D. medications,Toiletries,All,Male Typical
-156,Face Wash,Toiletries,All,All
-157,First Aid Kit,Toiletries,All,All
-158,Floss,Toiletries,All,All
-159,Hair Brush/Comb,Toiletries,All,All
-160,Make Up,Toiletries,All,Female Typical
-161,Make Up Remover,Toiletries,All,Female Typical
-162,Medications,Toiletries,All,All
-163,Menstrual Products,Toiletries,All,Female Typical
-164,Moisturizer/Lotion,Toiletries,All,All
-165,Nail File/Clippers,Toiletries,All,All
-166,Pain Medications,Toiletries,All,All
-167,Razors,Toiletries,All,All
-168,Shampoo,Toiletries,All,All
-169,Shaving Cream,Toiletries,All,All
-170,Soap,Toiletries,All,All
-171,Toothbrush,Toiletries,All,All
-172,Toothpaste,Toiletries,All,All
-173,Tweezers,Toiletries,All,All
-174,Vitamins,Toiletries,All,All
-175,Accessories (Cuff Links/Purse),Wedding/Formal,All,All
-176,Dress Shoes,Wedding/Formal,All,All
-177,Gift,Wedding/Formal,All,All
-178,Suit/Dress,Wedding/Formal,All,All
+19,Camp Stove,Camping,All,All
+20,Tent,Camping,All,All
+21,Sleeping Bag,Camping,All,All
+22,Sleeping Mat,Camping,All,All
+23,Camp Pillow,Camping,All,All
+24,Camp Chairs,Camping,All,All
+25,Camp Table,Camping,All,All
+26,Cook Gear,Camping,All,All
+27,Eating Dishes,Camping,All,All
+28,Fire Wood,Camping,All,All
+29,Fire Starter,Camping,All,All
+30,Water Filter,Camping,All,All
+31,Boots,Camping,All,All
+32,Head Lamp,Camping,All,All
+33,Long Underwear,Camping,All,All
+34,Hatchet ,Camping,All,All
+35,Knife,Camping,All,All
+36,Work Gloves,Camping,All,All
+37,Stove Fuel,Camping,All,All
+38,Tarp,Camping,All,All
+39,Bug Spray,Camping,All,All
+40,Mosquito Netting,Camping,All,All
+41,Bear Canister,Camping,All,All
+42,Sunblock,Camping,All,All
+43,Mulit-tool,Camping,All,All
+44,Repair kits,Camping,All,All
+45,Water  ,Camping,All,All
+46,Layered Clothing,Camping,All,All
+47,S'Mores Ingredients! ,Camping,All,All
+48,Lantern,Camping,All,All
+49,Extra Socks,Camping,All,All
+50,Baby lotion,Child 0-2,All,All
+51,Baby Wash,Child 0-2,All,All
+52,Baby/Toddler food,Child 0-2,All,All
+53,Bibs,Child 0-2,All,All
+54,Blanket,Child 0-2,All,All
+55,Bottle Brush,Child 0-2,All,All
+56,Bottles,Child 0-2,All,All
+57,Breast Feeding Cover,Child 0-2,All,All
+58,Burp Cloths,Child 0-2,All,All
+59,Car Seat,Child 0-2,All,All
+60,Changing Pad,Child 0-2,All,All
+61,Diaper Bag,Child 0-2,All,All
+62,Diaper Cream,Child 0-2,All,All
+63,Diapers,Child 0-2,All,All
+64,Formula,Child 0-2,All,All
+65,Pacifier,Child 0-2,All,All
+66,Pack 'n Play,Child 0-2,All,All
+67,Pajamas,Child 0-2,All,All
+68,Stroller,Child 0-2,All,All
+69,Stuffy,Child 0-2,All,All
+70,Sun Hat,Child 0-2,All,All
+71,Teething Rings,Child 0-2,All,All
+72,Blanket,Child 3-6,All,All
+73,Car Seat,Child 3-6,All,All
+74,Diaper Cream,Child 3-6,All,All
+75,Juice packets,Child 3-6,All,All
+76,Kid Snacks,Child 3-6,All,All
+77,Pajamas,Child 3-6,All,All
+78,Pull-ups/Diapers,Child 3-6,All,All
+79,Sippy Cup,Child 3-6,All,All
+80,Small Toys,Child 3-6,All,All
+81,Stroller,Child 3-6,All,All
+82,Stuffy,Child 3-6,All,All
+83,Sun Hat,Child 3-6,All,All
+84,Action Figures,Child 7-12,All,All
+85,Age-appropriate Books,Child 7-12,All,All
+86,Car Seat/ Booster Seat,Child 7-12,All,All
+87,Coloring Book,Child 7-12,All,All
+88,Juice packets,Child 7-12,All,All
+89,Kid Snacks,Child 7-12,All,All
+90,Pajamas,Child 7-12,All,All
+91,Small Toys,Child 7-12,All,All
+92,Sun Hat,Child 7-12,All,All
+93,Travel Journal,Child 7-12,All,All
+94,Washable Markers,Child 7-12,All,All
+95,Water Bottle,Child 7-12,All,All
+96,Writing Utensils,Child 7-12,All,All
+97,Baby/Child Medications,Child All,All,All
+98,Bandaids,Child All,All,All
+99,Books/Electronics/Games,Child All,All,All
+100,Child First Aid Kit,Child All,All,All
+101,Child Tweezers,Child All,All,All
+102,Extra Changes of clothes,Child All,All,All
+103,Thermometer,Child All,All,All
+104,Wipes,Child All,All,All
+105,Ziplock Bags,Child All,All,All
+106,Blouses/ Dress Shirts,Clothing,All,All
+107,Boots,Clothing,Cool Cold,All
+108,Bras,Clothing,All,Female Typical
+109,Downcoat/Parka,Clothing,Cold,All
+110,Dresses,Clothing,Warm Hot,Female Typical
+111,Jeans,Clothing,All,All
+112,Leggings,Clothing,All,Female Typical
+113,Light Coat,Clothing,Cool,All
+114,Longsleeves,Clothing,Cool Cold,All
+115,Pajamas,Clothing,All,All
+116,Pants,Clothing,Cool,All
+117,Raincoat,Clothing,Rainy,All
+118,Sandals/Flip Flops,Clothing,Warm Hot,All
+119,Shoes,Clothing,All,All
+120,Shorts,Clothing,Warm Hot,All
+121,Skirts,Clothing,Warm Hot,Female Typical
+122,Sneakers,Clothing,All,All
+123,Socks,Clothing,All,All
+124,Sweaters,Clothing,Cool Cold,All
+125,Sweatshirts,Clothing,Cool Cold,All
+126,T-Shirts,Clothing,All,All
+127,Tank Tops,Clothing,Hot,All
+128,Underwear,Clothing,All,All
+129,Wool Socks,Clothing,Cold,All
+130,Work Out Bottoms,Clothing,All,All
+131,Work Out Tops,Clothing,All,All
+132,Work Out Undergarments,Clothing,All,All
+133,Cash,Essentials,All,All
+134,Eye-glasses,Essentials,All,All
+135,Hand Sanitizer,Essentials,All,All
+136,House/Car Keys,Essentials,All,All
+137,ID,Essentials,All,All
+138,Itinerary,Essentials,All,All
+139,Mask,Essentials,All,All
+140,Phone,Essentials,All,All
+141,Phone Charger,Essentials,All,All
+142,Wallet,Essentials,All,All
+143,Backpack,Hiking,All,All
+144,Bug Spray,Hiking,All,All
+145,Compass,Hiking,All,All
+146,Ferro Rod,Hiking,All,All
+147,Headlamp,Hiking,All,All
+148,Hiking Poles,Hiking,All,All
+149,Hiking Shoes,Hiking,All,All
+150,Hiking Socks,Hiking,All,All
+151,Map,Hiking,All,All
+152,Passport,International,All,All
+153,Visas,International,All,All
+154,Emergency Contacts,International,All,All
+155,Currency of Destination,International,All,All
+156,Book,Misc.,All,All
+157,Camera,Misc.,All,All
+158,Camera Charger,Misc.,All,All
+159,Cards,Misc.,All,All
+160,Journal,Misc.,All,All
+161,Kindle,Misc.,All,All
+162,Pen/Pencil,Misc.,All,All
+163,Recreational Drugs,Misc.,All,All
+164,Travel Guide Book,Misc.,All,All
+165,Water Bottle,Misc.,All,All
+166,Event tickets,Nightlife,All,All
+167,Night Life Outfit,Nightlife,All,All
+168,Buff or neckwarmer,Skiing,All,All
+169,Goggles,Skiing,All,All
+170,Hand & Toe Warmers,Skiing,All,All
+171,Helmet,Skiing,All,All
+172,Hot Tub Attire,Skiing,All,All
+173,Long Underwear,Skiing,All,All
+174,Midlayer,Skiing,All,All
+175,Outerlayer shell,Skiing,All,All
+176,Poles,Skiing,All,All
+177,Ski Boots,Skiing,All,All
+178,Ski Gloves,Skiing,All,All
+179,Ski Pants,Skiing,All,All
+180,Ski Pass,Skiing,All,All
+181,Ski Socks,Skiing,All,All
+182,Ski Strap,Skiing,All,All
+183,Skis,Skiing,All,All
+184,Beard trimmer,Toiletries,All,Male Typical
+185,Birth Control,Toiletries,All,Female Typical
+186,Chapstick,Toiletries,All,All
+187,Condoms,Toiletries,All,All
+188,Deodorant,Toiletries,All,All
+189,E.D. medications,Toiletries,All,Male Typical
+190,Face Wash,Toiletries,All,All
+191,First Aid Kit,Toiletries,All,All
+192,Floss,Toiletries,All,All
+193,Hair Brush/Comb,Toiletries,All,All
+194,Make Up,Toiletries,All,Female Typical
+195,Make Up Remover,Toiletries,All,Female Typical
+196,Medications,Toiletries,All,All
+197,Menstrual Products,Toiletries,All,Female Typical
+198,Moisturizer/ Lotion,Toiletries,All,All
+199,Nail File/Clippers,Toiletries,All,All
+200,Pain Medications,Toiletries,All,All
+201,Razors,Toiletries,All,All
+202,Shampoo,Toiletries,All,All
+203,Shaving Cream,Toiletries,All,All
+204,Soap,Toiletries,All,All
+205,Toothbrush,Toiletries,All,All
+206,Toothpaste,Toiletries,All,All
+207,Tweezers,Toiletries,All,All
+208,Vitamins,Toiletries,All,All
+209,Accessories (Cuff Links/Purse),Wedding/Formal,All,All
+210,Dress Shoes,Wedding/Formal,All,All
+211,Gift,Wedding/Formal,All,All
+212,Suit/Dress,Wedding/Formal,All,All

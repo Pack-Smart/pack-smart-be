@@ -10,7 +10,7 @@ def _packing_list_payload(packing_list):
       return {
     "list_id": packing_list.id,
     "title": packing_list.title,
-    "num_of_days": packing_list.num_of_days,
+    "duration": packing_list.num_of_days,
     "destination": packing_list.destination
   }
 
@@ -43,7 +43,7 @@ class PackingListsResource(Resource):
     data = request.get_json()
     user_id = data['data']['userID']
     title = data['data']['tripDetails']['title']
-    number_of_days = data['data']['tripDetails']['number_of_days']
+    number_of_days = data['data']['tripDetails']['duration']
     destination = data['data']['tripDetails']['destination']
     items = data['data']['items']
 
@@ -73,7 +73,7 @@ class PackingListsResource(Resource):
 
 
 def _item_list_payload(item_list, item):
-  return {
+      return {
     "id": item_list.id,
     "item_id": item.id,
     "name": item.item,
@@ -106,7 +106,13 @@ class UserPackingListsResource(Resource):
     return jsonify(category_obj)
 
   def patch(self, packing_list_id):
-    db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).update(request.get_json())
+    update_packing_list = {
+      'title': request.get_json()['title'],
+      'num_of_days': request.get_json()['duration'],
+      'destination': request.get_json()['destination']
+    }
+
+    db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).update(update_packing_list)
     db.session.commit()
 
     packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
