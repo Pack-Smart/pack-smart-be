@@ -3,7 +3,6 @@ import json
 # import code; code.interact(local=dict(globals(), **locals()))
 
 from flask import Flask
-from flask_cors import CORS
 from flask import request, jsonify
 from flask_restful import Resource, abort
 from api import db

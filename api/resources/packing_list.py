@@ -1,5 +1,4 @@
 import datetime
-from flask_cors import CORS
 from flask import request, jsonify
 from flask_restful import Resource, abort
 from api import db
@@ -120,7 +119,7 @@ class UserPackingListsResource(Resource):
   def delete(self, packing_list_id):
     packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
 
-    if bool(db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()):
+    if bool(packing_list):
       packing_list.delete()
       return jsonify({"success": "Packing list has been deleted"})
     else:
