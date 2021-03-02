@@ -56,6 +56,9 @@ class PackingListsResource(Resource):
 
     packing_list.insert()
 
+    for item in items_mappings:
+      item["packing_list_id"] = packing_list.id
+
     db.session.bulk_insert_mappings(ItemLists, items_mappings)
     db.session.commit()
 
