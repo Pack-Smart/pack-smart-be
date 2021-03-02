@@ -100,6 +100,7 @@ class UserPackingListsResource(Resource):
         "attributes": {
           "categories": categories,
           "tripDetails": {
+            "packing_list_id": packing_list.id,
             "title": packing_list.title,
             "num_of_days": packing_list.num_of_days,
             "destination": packing_list.destination

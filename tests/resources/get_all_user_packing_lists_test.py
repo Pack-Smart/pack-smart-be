@@ -41,7 +41,7 @@ class GetAllUserPackingLists(unittest.TestCase):
 
     self.assertEqual(200, response.status_code)
     data = json.loads(response.data.decode('utf-8'))['data']
-    
+
     self.assertEqual(2, len(data['attributes']['PackingLists']))
     self.assertEqual(packing_list_1.id, data['attributes']['PackingLists'][1]['list_id'])
     self.assertEqual(packing_list_1.title, data['attributes']['PackingLists'][1]['title'])
@@ -55,6 +55,6 @@ class GetAllUserPackingLists(unittest.TestCase):
 
     self.assertEqual(200, response.status_code)
     data = json.loads(response.data.decode('utf-8'))
-    
+
     self.assertEqual('User does not exists', data['error'])
 
