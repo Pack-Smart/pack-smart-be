@@ -45,7 +45,7 @@ class PackingListsResource(Resource):
     title = data['data']['tripDetails']['title']
     number_of_days = data['data']['tripDetails']['duration']
     destination = data['data']['tripDetails']['destination']
-    items = data['data']['items']
+    items_mappings = data['data']['items']
 
     packing_list = PackingLists(
       title=title,
@@ -56,16 +56,8 @@ class PackingListsResource(Resource):
 
     packing_list.insert()
 
-    # can maybe user a bulk insert mapping instead
-    for item in items:
-      item_list = ItemLists(
-        item_id=item['item_id'],
-        packing_list_id=packing_list.id,
-        quantity=item['quantity'],
-        is_checked=item['is_checked']
-      )
-
-      item_list.insert()
+    db.session.bulk_insert_mappings(ItemLists, items_mappings)
+    db.session.commit()
 
     return {
       "data": {
