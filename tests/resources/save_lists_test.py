@@ -1,7 +1,7 @@
 import json
 import unittest
 from copy import deepcopy
-from api.database.models import Users, Item
+from api.database.models import Users, Item, PackingLists
 import psycopg2
 from api import create_app, db
 from tests import db_drop_everything
@@ -63,9 +63,13 @@ class SavePackingListTest(unittest.TestCase):
     self.assertEqual(200, response.status_code)
 
     data = json.loads(response.data.decode('utf-8'))
-
+    items = db.session.query(PackingLists).first().item_lists
+    
     self.assertEqual('Packing List Saved!', data['data']['message'])
     self.assertEqual(200, data['data']['status_code'])
+    self.assertEqual(2, len(items))
+    self.assertEqual("Hat", items[0].items.item)
+    self.assertEqual("Watch", items[1].items.item)
 
 
 
