@@ -94,7 +94,13 @@ class UserPackingListsResource(Resource):
         "id": datetime.now().strftime('%Y%m-%d%H-%M%S-') + str(uuid4()),
         "type": "Item_List",
         "attributes": {
-          "categories": categories
+          "categories": categories,
+          "tripDetails": {
+            "packing_list_id": packing_list.id,
+            "title": packing_list.title,
+            "num_of_days": packing_list.num_of_days,
+            "destination": packing_list.destination
+          }
         }
       }
     }

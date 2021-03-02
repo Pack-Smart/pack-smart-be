@@ -62,7 +62,7 @@ class GetAllItemLists(unittest.TestCase):
     response = self.client.get(
       f'/api/v1/packing_lists/{self.packing_list_1.id}'
     )
-      
+
     self.assertEqual(200, response.status_code)
 
     data = json.loads(response.data.decode('utf-8'))['data']
@@ -72,3 +72,8 @@ class GetAllItemLists(unittest.TestCase):
     self.assertEqual('Hats', data['attributes']['categories']['Accessories'][0]['name'])
     self.assertEqual('Belts', data['attributes']['categories']['Accessories'][1]['name'])
     self.assertEqual('Birth Control', data['attributes']['categories']['Toiletries'][0]['name'])
+    self.assertEqual(1, data['attributes']['tripDetails']['packing_list_id'])
+    self.assertEqual('Hawaii Trip', data['attributes']['tripDetails']['title'])
+    self.assertEqual(7, data['attributes']['tripDetails']['num_of_days'])
+    self.assertEqual('Hawaii', data['attributes']['tripDetails']['destination'])
+
