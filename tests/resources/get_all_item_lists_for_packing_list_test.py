@@ -72,8 +72,8 @@ class GetAllItemLists(unittest.TestCase):
     self.assertEqual('Hats', data['attributes']['categories']['Accessories'][0]['name'])
     self.assertEqual('Belts', data['attributes']['categories']['Accessories'][1]['name'])
     self.assertEqual('Birth Control', data['attributes']['categories']['Toiletries'][0]['name'])
-    self.assertEqual(1, data['attributes']['tripDetails']['packing_list_id'])
+    self.assertEqual(1, data['attributes']['tripDetails']['listId'])
     self.assertEqual('Hawaii Trip', data['attributes']['tripDetails']['title'])
-    self.assertEqual(7, data['attributes']['tripDetails']['num_of_days'])
+    self.assertEqual(7, data['attributes']['tripDetails']['duration'])
     self.assertEqual('Hawaii', data['attributes']['tripDetails']['destination'])
 
