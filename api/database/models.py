@@ -47,6 +47,7 @@ class PackingLists(db.Model):
     num_of_days = Column(Integer, nullable=False)
     destination = Column(String(80), nullable=False)
 
+    custom_items = relationship("CustomItem")
     items = relationship("Item",secondary="item_lists")
 
     def insert(self):
@@ -71,6 +72,27 @@ class ItemLists(db.Model):
 
     packing_lists = relationship(PackingLists, backref=backref("item_lists", cascade="all, delete-orphan"))
     items = relationship(Item, backref=backref("item_lists", cascade="all, delete-orphan"))
+
+    def insert(self):
+        db.session.add(self)
+        db.session.commit()
+
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
+
+class CustomItem(db.Model):
+    """
+    Custom Item Model
+    """
+    __tablename__ = 'custom_items'
+
+    id = Column(Integer, primary_key=True)
+    item = Column(String(20), nullable=False)
+    quantity = Column(Integer, nullable=False)
+    is_checked = Column(Boolean, nullable=False)
+    category = Column(String(20), nullable=False)
+    packing_list_id = Column(Integer, ForeignKey('packing_lists.id'))
 
     def insert(self):
         db.session.add(self)

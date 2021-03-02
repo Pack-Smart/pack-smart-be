@@ -83,11 +83,13 @@ def create_app(config_name='default'):
     from api.resources.packing_list import PackingListsResource
     from api.resources.packing_list import UserPackingListsResource
     from api.resources.item_list import ItemListResource
+    from api.resources.custom_item import CustomItemResource
 
     api.add_resource(ItemsResource, '/api/v1/list/new')
     api.add_resource(PackingListsResource, '/api/v1/packing_lists/new')
     api.add_resource(PackingListResource, '/api/v1/users/<user_id>/packing_lists')
     api.add_resource(UserPackingListsResource, '/api/v1/packing_lists/<packing_list_id>')
     api.add_resource(ItemListResource, '/api/v1/item_list/update')
+    api.add_resource(CustomItemResource, '/api/v1/custom_item/new')
 
     return app
