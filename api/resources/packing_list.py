@@ -72,17 +72,27 @@ class PackingListsResource(Resource):
 
 
 def _item_list_payload(item_list, item):
-      return {
+  return {
     "id": item_list.id,
     "item_id": item.id,
     "name": item.item,
     "quantity": item_list.quantity,
     "is_checked": item_list.is_checked
   }
+
+def _custom_item_payload(item):
+  return {
+    "id": item.id,
+    "item_id": item.id,
+    "name": item.item,
+    "quantity": item.quantity,
+    "is_checked": item.is_checked
+  }
 class UserPackingListsResource(Resource):
   def get(self, packing_list_id):
     packing_list = db.session.query(PackingLists).filter(PackingLists.id == packing_list_id).first()
     item_lists = packing_list.item_lists
+    custom_items = packing_list.custom_items
     categories = {}
 
     for item_list in item_lists:
@@ -91,6 +101,13 @@ class UserPackingListsResource(Resource):
       else:
         categories[item_list.items.category] = []
         categories[item_list.items.category].append(_item_list_payload(item_list, item_list.items))
+
+    for item in custom_items:
+      if item.category in categories:
+        categories[item.category].append(_custom_item_payload(item))
+      else:
+        categories[item.category] = []
+        categories[item.category].append(_custom_item_payload(item))
 
     category_obj = {
         "data": {

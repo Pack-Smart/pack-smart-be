@@ -1,7 +1,7 @@
 import json
 import unittest
 from copy import deepcopy
-from api.database.models import PackingLists, ItemLists, Item, Users
+from api.database.models import PackingLists, ItemLists, Item, Users, CustomItem
 
 from api import create_app, db
 from tests import db_drop_everything, assert_payload_field_type_value, \
@@ -53,6 +53,12 @@ class GetAllItemLists(unittest.TestCase):
     self.item_list_5 = ItemLists(packing_list_id = 2, item_id = self.item_4.id, quantity = 100, is_checked = False)
     self.item_list_5.insert()
 
+    self.custom_item_1 = CustomItem(item='Earrings', quantity=2, is_checked=False, category='Accessories', packing_list_id=1)
+    self.custom_item_1.insert()
+
+    self.custom_item_2 = CustomItem(item='Toy Car', quantity=2, is_checked=False, category='Toys', packing_list_id=1)
+    self.custom_item_2.insert()
+
   def tearDown(self):
     db.session.remove()
     db_drop_everything(db)
@@ -67,11 +73,13 @@ class GetAllItemLists(unittest.TestCase):
 
     data = json.loads(response.data.decode('utf-8'))['data']
 
-    self.assertEqual(2, len(data['attributes']['categories']['Accessories']))
+    self.assertEqual(3, len(data['attributes']['categories']['Accessories']))
     self.assertEqual(1, len(data['attributes']['categories']['Toiletries']))
     self.assertEqual('Hats', data['attributes']['categories']['Accessories'][0]['name'])
     self.assertEqual('Belts', data['attributes']['categories']['Accessories'][1]['name'])
+    self.assertEqual('Earrings', data['attributes']['categories']['Accessories'][2]['name'])
     self.assertEqual('Birth Control', data['attributes']['categories']['Toiletries'][0]['name'])
+    self.assertEqual('Toy Car', data['attributes']['categories']['Toys'][0]['name'])
     self.assertEqual(1, data['attributes']['tripDetails']['listId'])
     self.assertEqual('Hawaii Trip', data['attributes']['tripDetails']['title'])
     self.assertEqual(7, data['attributes']['tripDetails']['duration'])
