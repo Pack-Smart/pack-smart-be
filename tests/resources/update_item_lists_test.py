@@ -112,6 +112,9 @@ class GetAllUserPackingLists(unittest.TestCase):
 
     self.assertEqual(200, response.status_code)
 
+    data = json.loads(response.data.decode('utf-8'))
+    self.assertEqual("Items have been updated", data["success"])
+
     self.assertEqual(16, self.item_list_1.quantity)
     self.assertEqual(True, self.item_list_1.is_checked)
 
@@ -135,6 +138,9 @@ class GetAllUserPackingLists(unittest.TestCase):
 
     self.assertEqual(200, response.status_code)
 
+    data = json.loads(response.data.decode('utf-8'))
+    self.assertEqual("Item has been updated", data["success"])
+
     self.assertEqual(32, self.item_list_1.quantity)
     self.assertEqual(True, self.item_list_1.is_checked)
 
@@ -151,6 +157,9 @@ class GetAllUserPackingLists(unittest.TestCase):
     )
 
     self.assertEqual(200, response.status_code)
+    
+    data = json.loads(response.data.decode('utf-8'))
+    self.assertEqual("Item has been updated", data["success"])
 
     self.assertEqual(32, self.custom_item.quantity)
     self.assertEqual(True, self.custom_item.is_checked)
