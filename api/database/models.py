@@ -47,7 +47,7 @@ class PackingLists(db.Model):
     num_of_days = Column(Integer, nullable=False)
     destination = Column(String(80), nullable=False)
 
-    custom_items = relationship("CustomItem")
+    custom_items = relationship("CustomItem", cascade="all, delete-orphan")
     items = relationship("Item",secondary="item_lists")
 
     def insert(self):
