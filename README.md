@@ -1,4 +1,5 @@
 # Pack Smart Backend Application
+[![Build Status](https://travis-ci.com/Pack-Smart/pack-smart-be.svg?branch=main)](https://travis-ci.com/Pack-Smart/pack-smart-be)
 
 Pack Smart is an application that allows uers to fill out a short survey about an upcoming trip and then provides a list of items to bring broken down into various categories. Users can then edit and save their packing lists.
 
