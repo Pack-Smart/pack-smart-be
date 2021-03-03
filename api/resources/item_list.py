@@ -25,13 +25,17 @@ class ItemListResource(Resource):
       db.session.bulk_update_mappings(ItemLists, item_lists)
       db.session.commit()
 
+      return jsonify({"success": "Items have been updated"})
+
     else:
       if 'category' in items[0]:
         db.session.query(CustomItem).filter(CustomItem.id == items[0]['id']).update(items[0])
         db.session.commit()
+        return jsonify({"success": "Item has been updated"})
       else:
         db.session.query(ItemLists).filter(ItemLists.id == items[0]['id']).update(items[0])
         db.session.commit()
+        return jsonify({"success": "Item has been updated"})
 
   def delete(self):
     item = request.get_json()['data']['item']
