@@ -86,31 +86,313 @@ Learning Goals...Coming Soon!
 
 This API will return data broken down into categories that are specified in the call from the frontend.
 
+## Endpoints
+  ```/api/v1/list/new ```
+
+An example of a call from the frontend might look like:
+
+```
+{
+   "data": {
+     "id": null,
+     "type": "survey",
+     "attributes": {
+        "gender": ["All"],
+        "weather": ["All", "%hot%"],
+        "destination": "Miami",
+        "tripDetails": {
+            "title": "Night life",
+            "destination": "Vice city",
+            "number_of_days": "7"
+          },
+        "number_of_days": "7",
+        "categories": ["Clothing", "Accessories"]
+      }
+   }
+ }
+```
+
+The response may look like:
+
+```
+{
+    "data": {
+        "attributes": {
+            "categories": {
+                "Accessories": [
+                    {
+                        "is_checked": false,
+                        "item_id": 1,
+                        "name": "Belts",
+                        "quantity": 0
+                    },
+                    {
+                        "is_checked": false,
+                        "item_id": 3,
+                        "name": "Hats",
+                        "quantity": 0
+                    }
+                ],
+                "Clothing": [
+                    {
+                        "is_checked": false,
+                        "item_id": 131,
+                        "name": "Work Out Tops",
+                        "quantity": 0
+                    },
+                    {
+                        "is_checked": false,
+                        "item_id": 132,
+                        "name": "Work Out Undergarments",
+                        "quantity": 0
+                    }
+                ]
+            },
+            "tripDetails": {
+                "destination": "Vice city",
+                "number_of_days": "7",
+                "title": "Night life"
+            }
+        },
+        "id": "202103-0219-3915-f3b87005-78f1-468e-9005-865f56576f3f",
+        "type": "Survey_Results"
+    }
+}
+```
+
+  ```/api/v1/packing_lists/new```
+
+  An example of a call from the frontend might look like:
+  ```
+{
+    "data": {
+        "userID": 1,
+        "tripDetails": {
+            "title": "Mars",
+            "destination": "Mars",
+            "duration": 2
+        },
+        "items": [
+            {
+                "is_checked": true,
+                "item_id": 1,
+                "quantity": 100
+            },
+            {
+                "is_checked": false,
+                "item_id": 2,
+                "quantity": 100
+            }
+        ]
+    }
+}
+  ```
+
+  The response may look like:
+
+```
+{
+    "data": {
+        "listId": 3,
+        "message": "Packing List Saved!",
+        "status_code": 200
+    }
+}
+```
+
+  ```/api/v1/users/<user_id>/packing_lists```
+
+  The response may look like:
+  ```
+{
+    "data": {
+        "attributes": {
+            "PackingLists": [
+                {
+                    "destination": "Mars",
+                    "duration": 2,
+                    "list_id": 3,
+                    "title": "Mars"
+                }
+            ]
+        },
+        "id": "202103-0220-2819-98d6a11b-9a9e-4eb8-b991-bf4e66fb2288",
+        "type": "Packing_Lists"
+    }
+}
+  ```
+
+```/api/v1/packing_lists/<packing_list_id>```
+
+To Get a Item list the response may look like:
+
+```
+{
+    "data": {
+        "attributes": {
+            "categories": {
+                "Accessories": [
+                    {
+                        "id": 1,
+                        "is_checked": true,
+                        "item_id": 1,
+                        "name": "Belts",
+                        "quantity": 100
+                    },
+                    {
+                        "id": 2,
+                        "is_checked": false,
+                        "item_id": 2,
+                        "name": "Gloves",
+                        "quantity": 100
+                    }
+                ]
+            },
+            "tripDetails": {
+                "destination": "Mars",
+                "duration": 2,
+                "listId": 3,
+                "title": "Mars"
+            }
+        },
+        "id": "202103-0220-3329-dcd6f36f-7f6b-456e-9f0c-134631e8c732",
+        "type": "Item_List"
+    }
+}
+```
+To Update a Packing List
+
+An example of a call from the frontend might look like:
+```
+{
+    "title": "To Jupiter",
+    "duration": 4,
+    "destination": "Jupiter"
+}
+```
+The response may look like this:
+
+```
+{
+    "list_id": 3,
+    "title": "To Jupiter",
+    "duration": 4,
+    "destination": "Jupiter"
+}
+```
+To Delete a Packing List
+
+The response may look like this:
+
+```
+{
+    "success": "Packing list has been deleted"
+}
+```
+
+``` /api/v1/item_list/update```
+
+To Update a Item List
+
+An example of a call from the frontend might look like:
+
+Updating a Bulk of Items
+```
+{
+      "data": {
+        "item": [
+          {
+            "id": self.custom_item.id,
+            "is_checked": True,
+            "quantity": 32,
+            "category": "something"
+          },
+          {
+            "id": self.item_list_1.id,
+            "is_checked": True,
+            "quantity": 16
+          }
+        ]
+      }
+    }
+
+```
+
+Updating a Single Item
+
+```
+self.single_item_payload_custom = {
+      "data": {
+        "item": [
+          {
+            "id": self.custom_item.id,
+            "is_checked": True,
+            "quantity": 32,
+            "category": "something"
+          }
+        ]
+      }
+    }
+```
+
+The Response for Both may look like:
+
+```
+{
+    "success": "Items have been updated"
+}
+
+{
+    "success": "Item has been updated"
+}
+```
+
+For Deleting a Item
+
+The response may look like:
+```
+{
+    "success": "Packing list item has been deleted"
+}
+```
+
+``` /api/v1/custom_item/new```
+
+Creating a Custom Item
+
 An example of a call from the frontend might look like:
 
 ```
 {
     "data": {
-        "id": 0,
-        "type": "survey",
+        "type": "custom item",
         "attributes": {
-            "gender": ["All", "Male"],
-            "weather": ["All", "%hot%", "%rainy%"],
-            "destination": "Miami",
-            "duration": "7",
-            "categories": ["Wedding", "Beach", "Child_all", "Child_0-2"]
+            "item": "PS5",
+            "quantity": 1,
+            "category": "video games",
+            "packing_list_id": 1
         }
-    }
+     }
 }
 ```
 
 The response may look like:
 
-EXAMPLE HERE
+```
+{
+    "message": "Custom Item Saved!",
+    "status_code": 200
+}
+```
+
 
 ## Programming Languages Used
 
-Languages...Coming Soon!
+
+- Python3 3.9
+
+- Flask
+
 
 ## Planning
 
@@ -118,21 +400,30 @@ Languages...Coming Soon!
 
 Database schema:
 
-![Screen Shot 2021-02-22 at 1 35 55 PM](https://user-images.githubusercontent.com/7945439/108887035-f176c800-75c6-11eb-8393-0f42e943e35a.png)
+![Screen Shot 2021-03-02 at 8 51 19 PM](https://user-images.githubusercontent.com/63522369/109743777-473b0980-7b9f-11eb-9ffa-2641e5a3bfef.png)
+
 
 ## Key Takeaways
 
 ### Challenges
 
-Challenges...Coming Soon!
+- Working with Flask
+- Learning SQLAlchemy
+- Learning Python Syntax
+- Testing
 
 ### Wins
 
-Wins...Coming Soon!
+- Complete MVP
+- Complete at least one Extension
+- Connecting FE with BE
+- Great Communication
+- Exposed new Technologies
 
 ## Next Steps
 
-Next Steps... Coming Soon!
+- Fully implement a User
+- Use the Weather API
 
 
 ## Contributors
